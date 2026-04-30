@@ -9,7 +9,7 @@ app = FastAPI(title="TradeVission API")
 origins = [
     "http://localhost:5173",
     "http://localhost:3000",
-    "https://tradevission-project-qaa9.vercel.app/",
+    "https://tradevission-project-vs1o.vercel.app",
 ]
 
 
