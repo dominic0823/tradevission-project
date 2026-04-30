@@ -6,7 +6,7 @@ export function useWebSocket() {
   const updatePrices = usePriceStore((s) => s.updatePrices)
 
   useEffect(() => {
-    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'ws://localhost:8000'
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'ws://localhost:8080'
     const wsUrl = backendUrl.replace(/^http/, 'ws') + '/ws/prices'
 
     const connect = () => {
