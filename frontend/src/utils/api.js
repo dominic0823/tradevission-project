@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const api = axios.create({ baseURL: '/api' })
+const api = axios.create({ baseURL: import.meta.env.VITE_API_BASE_URL || '/api' })
 
 export const register = (data) => api.post('/register', data)
 export const login = (data) => api.post('/login', data)

@@ -6,9 +6,12 @@ export function useWebSocket() {
   const updatePrices = usePriceStore((s) => s.updatePrices)
 
   useEffect(() => {
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'ws://localhost:8000'
+    const wsUrl = backendUrl.replace(/^http/, 'ws') + '/ws/prices'
+
     const connect = () => {
       try {
-        ws.current = new WebSocket('ws://localhost:8000/ws/prices')
+        ws.current = new WebSocket(wsUrl)
         ws.current.onmessage = (e) => {
           try {
             const data = JSON.parse(e.data)
