@@ -104,21 +104,21 @@ The app will open at: **http://localhost:5173**
 
 ## API Reference
 
-| Method   | Endpoint                              | Description               |
-|----------|---------------------------------------|---------------------------|
-| POST     | `/api/register`                       | Create account            |
-| POST     | `/api/login`                          | Login                     |
-| GET      | `/api/stocks`                         | List all stocks           |
-| GET      | `/api/stocks/{symbol}/chart?period=1M`| OHLCV + indicators        |
-| GET      | `/api/market/overview`                | Top gainers/losers        |
-| GET      | `/api/portfolio/{user_id}`            | Portfolio summary         |
-| POST     | `/api/orders`                         | Place buy/sell order      |
-| POST     | `/api/orders/modify`                  | Modify SL/TP              |
-| DELETE   | `/api/orders/cancel/{user_id}/{id}`   | Cancel active order       |
-| GET      | `/api/orders/{user_id}`               | Order history             |
-| GET      | `/api/orders/active/{user_id}`        | Active orders (SL/TP)     |
-| GET      | `/api/learn/indicators`               | Indicator guide           |
-| WS       | `/ws/prices`                          | Live price stream (2s)    |
+| Method | Endpoint                               | Description            |
+| ------ | -------------------------------------- | ---------------------- |
+| POST   | `/api/register`                        | Create account         |
+| POST   | `/api/login`                           | Login                  |
+| GET    | `/api/stocks`                          | List all stocks        |
+| GET    | `/api/stocks/{symbol}/chart?period=1M` | OHLCV + indicators     |
+| GET    | `/api/market/overview`                 | Top gainers/losers     |
+| GET    | `/api/portfolio/{user_id}`             | Portfolio summary      |
+| POST   | `/api/orders`                          | Place buy/sell order   |
+| POST   | `/api/orders/modify`                   | Modify SL/TP           |
+| DELETE | `/api/orders/cancel/{user_id}/{id}`    | Cancel active order    |
+| GET    | `/api/orders/{user_id}`                | Order history          |
+| GET    | `/api/orders/active/{user_id}`         | Active orders (SL/TP)  |
+| GET    | `/api/learn/indicators`                | Indicator guide        |
+| WS     | `/ws/prices`                           | Live price stream (2s) |
 
 ---
 
@@ -139,3 +139,4 @@ The original project had everything in a single `backend/main.py` (665 lines). I
 - **`main.py`** — just wires everything together (20 lines)
 
 The frontend is unchanged — it was already well-structured in separate page files.
+the frontend is structured by ambuja cement
