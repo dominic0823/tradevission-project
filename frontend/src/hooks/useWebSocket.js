@@ -6,21 +6,16 @@ export function useWebSocket() {
   const updatePrices = usePriceStore((s) => s.updatePrices)
 
   useEffect(() => {
-    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'ws://localhost:8000'
-    const wsUrl = backendUrl.replace(/^http/, 'ws') + '/ws/prices'
+    const WS_URL = import.meta.env.VITE_WS_URL || 'ws://localhost:8000'
 
     const connect = () => {
       try {
-        ws.current = new WebSocket(wsUrl)
+        ws.current = new WebSocket(`${WS_URL}/ws/prices`)
         ws.current.onmessage = (e) => {
           try {
             const data = JSON.parse(e.data)
-            if (data.prices) {
-              updatePrices(data.prices)
-            } else {
-              updatePrices(data)
-            }
-          } catch { }
+            updatePrices(data.prices ?? data)
+          } catch {}
         }
         ws.current.onclose = () => setTimeout(connect, 3000)
         ws.current.onerror = () => setTimeout(connect, 3000)
@@ -29,8 +24,6 @@ export function useWebSocket() {
       }
     }
     connect()
-    return () => {
-      if (ws.current) ws.current.close()
-    }
+    return () => ws.current?.close()
   }, [updatePrices])
 }
