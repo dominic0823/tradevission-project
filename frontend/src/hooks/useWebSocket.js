@@ -7,7 +7,7 @@ export function useWebSocket() {
 
   useEffect(() => {
     const WS_URL = import.meta.env.VITE_WS_URL || 'ws://localhost:8000'
-
+    ws.current = new WebSocket(`${WS_URL}/ws/prices`)
     const connect = () => {
       try {
         ws.current = new WebSocket(`${WS_URL}/ws/prices`)
